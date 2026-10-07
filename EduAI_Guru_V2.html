@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EduAI Guru V2</title>
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--ink:#172033;--muted:#6b7280;--line:#e5e7eb;--brand:#3157d5;--dark:#111827}
+*{box-sizing:border-box}body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+button,input,select,textarea{font:inherit}.app{display:flex;min-height:100vh}.side{width:245px;background:var(--dark);color:#e5e7eb;padding:18px 12px;position:fixed;inset:0 auto 0 0}
+.brand{display:flex;gap:10px;align-items:center;padding:8px 10px 24px}.mark{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#60a5fa,#4f46e5);display:grid;place-items:center;font-weight:800}.brand b{font-size:18px}.brand small{display:block;color:#94a3b8;font-size:10px}.label{font-size:10px;color:#94a3b8;padding:8px;letter-spacing:1px}.nav button{display:block;width:100%;border:0;background:none;color:#cbd5e1;padding:11px;border-radius:9px;text-align:left;cursor:pointer;margin:2px 0}.nav button:hover,.nav button.active{background:#1f2937;color:white}.nav span{display:inline-block;width:27px}.foot{position:absolute;bottom:18px;padding:0 9px;color:#64748b;font-size:11px}
+.main{margin-left:245px;width:calc(100% - 245px)}header{height:68px;background:white;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 25px;position:sticky;top:0;z-index:3}header h2{margin:0;font-size:18px}.profile{display:flex;align-items:center;gap:9px;font-size:13px}.avatar{width:34px;height:34px;border-radius:50%;background:#dbeafe;color:#1d4ed8;display:grid;place-items:center;font-weight:700}
+.wrap{padding:25px;max-width:1400px;margin:auto}.page{display:none}.page.active{display:block}.hero{background:linear-gradient(135deg,#2451cf,#5b45d6);color:#fff;border-radius:18px;padding:28px;display:flex;justify-content:space-between;margin-bottom:20px}.hero h1{margin:0 0 7px}.hero p{margin:0;color:#e0e7ff}.heroicon{font-size:55px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-bottom:22px}.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}.stat{display:flex;gap:12px;align-items:center}.icon{width:42px;height:42px;border-radius:11px;background:#eef3ff;display:grid;place-items:center}.stat b{font-size:22px}.muted{font-size:13px;color:var(--muted)}.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.tool{cursor:pointer}.tool:hover{border-color:#9fb0e8}.tool h3{margin:8px 0 5px}.tool p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}
+.title{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.title h2{font-size:20px;margin:0}.form{max-width:950px}.row{display:grid;grid-template-columns:1fr 1fr;gap:13px}.field{margin-bottom:14px}.field label{display:block;font-size:13px;font-weight:600;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;padding:11px;border:1px solid var(--line);border-radius:9px;background:#fff}.field textarea{min-height:105px;resize:vertical}.primary,.secondary{padding:10px 14px;border-radius:9px;cursor:pointer;font-weight:600}.primary{border:0;background:var(--brand);color:#fff}.secondary{border:1px solid var(--line);background:#fff}.actions{display:flex;gap:8px;flex-wrap:wrap}.output{display:none;margin-top:15px;padding:15px;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:10px;white-space:pre-wrap;font-size:13px;line-height:1.6}.notice{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;padding:10px;border-radius:9px;font-size:12px;margin-bottom:14px}
+.chat{height:calc(100vh - 118px);min-height:500px;background:#fff;border:1px solid var(--line);border-radius:15px;display:flex;flex-direction:column;overflow:hidden}.chathead{padding:13px 16px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between}.messages{flex:1;overflow:auto;padding:22px}.msg{display:flex;gap:10px;max-width:850px;margin:0 auto 17px}.bubble{padding:12px 14px;border-radius:13px;background:#f1f5f9;max-width:78%;line-height:1.5;font-size:14px}.me{justify-content:flex-end}.me .bubble{background:#3157d5;color:#fff}.chatinput{border-top:1px solid var(--line);padding:12px;display:flex;gap:8px}.chatinput textarea{flex:1;min-height:46px;border:1px solid var(--line);border-radius:10px;padding:10px;resize:none}.table{width:100%;border-collapse:collapse}.table th,.table td{padding:11px;border-bottom:1px solid var(--line);text-align:left;font-size:13px}.table th{background:#f8fafc}
+@media(max-width:950px){.grid{grid-template-columns:1fr 1fr}.tools{grid-template-columns:1fr 1fr}}@media(max-width:650px){.side{width:68px}.brand b,.brand small,.label,.nav b,.foot{display:none}.nav button{text-align:center}.main{margin-left:68px;width:calc(100% - 68px)}.wrap{padding:15px}.grid,.tools,.row{grid-template-columns:1fr}.heroicon{display:none}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="side">
+<div class="brand"><div class="mark">✦</div><div><b>EduAI Guru</b><small>Teaching Workspace V2</small></div></div>
+<div class="label">MENU UTAMA</div>
+<nav class="nav">
+<button class="active" data-page="dashboard"><span>⌂</span><b>Dashboard</b></button>
+<button data-page="chat"><span>✦</span><b>AI Assistant</b></button>
+<button data-page="soal"><span>📝</span><b>Generator Soal</b></button>
+<button data-page="lkpd"><span>📚</span><b>Generator LKPD</b></button>
+<button data-page="modul"><span>📖</span><b>Generator Modul</b></button>
+<button data-page="rps"><span>📅</span><b>RPS / RPP</b></button>
+<button data-page="ppt"><span>📊</span><b>Generator PPT</b></button>
+<button data-page="bank"><span>🗂</span><b>Bank Soal</b></button>
+<button data-page="settings"><span>⚙</span><b>Pengaturan</b></button>
+</nav><div class="foot">EduAI Guru V2.0<br>HTML • CSS • JS</div>
+</aside>
+<main class="main">
+<header><h2 id="pageTitle">Dashboard</h2><div class="profile"><span id="profileName">Euis Nessia Fitri</span><div class="avatar">EN</div></div></header>
+<div class="wrap">
+
+<section id="dashboard" class="page active">
+<div class="hero"><div><h1 id="welcome">Selamat datang di EduAI Guru</h1><p>Workspace AI untuk membantu guru dan dosen membuat perangkat pembelajaran.</p></div><div class="heroicon">🎓</div></div>
+<div class="grid">
+<div class="card stat"><div class="icon">📝</div><div><b>25</b><div class="muted">Soal dibuat</div></div></div>
+<div class="card stat"><div class="icon">📚</div><div><b>8</b><div class="muted">LKPD dibuat</div></div></div>
+<div class="card stat"><div class="icon">📊</div><div><b>6</b><div class="muted">PPT dibuat</div></div></div>
+<div class="card stat"><div class="icon">✦</div><div><b>47</b><div class="muted">AI requests</div></div></div>
+</div>
+<div class="title"><h2>Tools Pembelajaran</h2></div>
+<div class="tools">
+<div class="card tool" data-go="chat"><div>✦</div><h3>AI Assistant</h3><p>Tanya AI tentang materi, tugas, asesmen, dan pembelajaran.</p></div>
+<div class="card tool" data-go="soal"><div>📝</div><h3>Generator Soal</h3><p>Buat soal dan download langsung ke Word.</p></div>
+<div class="card tool" data-go="lkpd"><div>📚</div><h3>Generator LKPD</h3><p>Susun LKPD berbasis aktivitas dan OBE.</p></div>
+<div class="card tool" data-go="modul"><div>📖</div><h3>Generator Modul</h3><p>Buat struktur modul ajar dengan cepat.</p></div>
+<div class="card tool" data-go="rps"><div>📅</div><h3>RPS / RPP</h3><p>Susun perencanaan pembelajaran sistematis.</p></div>
+<div class="card tool" data-go="ppt"><div>📊</div><h3>Generator PPT</h3><p>Buat outline slide presentasi pembelajaran.</p></div>
+</div>
+</section>
+
+<section id="chat" class="page"><div class="chat">
+<div class="chathead"><strong>✦ AI Assistant</strong><select id="model"><option>ChatGPT</option><option>Gemini</option></select></div>
+<div class="messages" id="messages"><div class="msg"><div class="avatar">AI</div><div class="bubble">Halo, Bu Nessia. Saya siap membantu membuat soal, LKPD, modul, RPS/RPP, atau PPT.</div></div></div>
+<div class="chatinput"><textarea id="chatText" placeholder="Contoh: Buat 10 soal HOTS Akuntansi Manajerial..."></textarea><button class="primary" id="send">Kirim</button></div>
+</div></section>
+
+<section id="soal" class="page"><div class="title"><h2>Generator Soal</h2></div><div class="card form">
+<div class="row"><div class="field"><label>Mata Kuliah / Pelajaran</label><input id="subjek" placeholder="Akuntansi Manajerial"></div><div class="field"><label>Jumlah Soal</label><input id="jumlah" type="number" min="1" max="50" value="5"></div></div>
+<div class="row"><div class="field"><label>Jenis</label><select id="jenis"><option>Pilihan Ganda</option><option>Benar / Salah</option><option>Essay</option></select></div><div class="field"><label>Level</label><select id="level"><option>Pemahaman</option><option>Aplikasi</option><option>HOTS / Analisis</option></select></div></div>
+<div class="field"><label>Materi</label><textarea id="materi" placeholder="Masukkan materi..."></textarea></div>
+<div class="actions"><button class="primary" id="makeSoal">Generate Soal</button><button class="secondary" id="downloadSoal" style="display:none">⬇ Download Word</button></div>
+<div id="soalOut" class="output"></div></div></section>
+
+<section id="lkpd" class="page"><div class="title"><h2>Generator LKPD</h2></div><div class="card form">
+<div class="row"><div class="field"><label>Topik</label><input id="lkpdTopik" placeholder="Analisis laporan keuangan"></div><div class="field"><label>Kelas / Semester</label><input id="lkpdKelas" placeholder="XI / 2"></div></div>
+<div class="field"><label>Tujuan Pembelajaran</label><textarea id="lkpdTujuan" placeholder="Peserta didik mampu..."></textarea></div>
+<div class="actions"><button class="primary" id="makeLKPD">Buat LKPD</button><button class="secondary" id="downloadLKPD" style="display:none">⬇ Download Word</button></div><div id="lkpdOut" class="output"></div></div></section>
+
+<section id="modul" class="page"><div class="title"><h2>Generator Modul Ajar</h2></div><div class="card form">
+<div class="row"><div class="field"><label>Judul / Materi</label><input id="modulTopik" placeholder="Dasar-Dasar Animasi"></div><div class="field"><label>Fase / Kelas</label><input id="modulKelas" placeholder="Fase E / X"></div></div>
+<div class="field"><label>Alokasi Waktu</label><input id="modulWaktu" placeholder="4 JP"></div>
+<div class="actions"><button class="primary" id="makeModul">Buat Modul</button><button class="secondary" id="downloadModul" style="display:none">⬇ Download Word</button></div><div id="modulOut" class="output"></div></div></section>
+
+<section id="rps" class="page"><div class="title"><h2>Generator RPS / RPP</h2></div><div class="card form">
+<div class="row"><div class="field"><label>Mata Kuliah</label><input id="rpsMatkul" placeholder="Akuntansi Keuangan"></div><div class="field"><label>Jumlah Pertemuan</label><input id="rpsPertemuan" type="number" min="1" max="32" value="16"></div></div>
+<div class="field"><label>CPL / CPMK</label><textarea id="rpsCpl" placeholder="Mahasiswa mampu..."></textarea></div>
+<div class="actions"><button class="primary" id="makeRPS">Buat RPS</button><button class="secondary" id="downloadRPS" style="display:none">⬇ Download Word</button></div><div id="rpsOut" class="output"></div></div></section>
+
+<section id="ppt" class="page"><div class="title"><h2>Generator PPT</h2></div><div class="card form">
+<div class="notice">Generator PPT V2 membuat outline slide otomatis. Output dapat dikembangkan menjadi file .pptx pada versi berikutnya.</div>
+<div class="row"><div class="field"><label>Judul Presentasi</label><input id="pptJudul" placeholder="Akuntansi Manajerial"></div><div class="field"><label>Jumlah Slide</label><input id="pptJumlah" type="number" min="3" max="30" value="10"></div></div>
+<div class="row"><div class="field"><label>Mata Kuliah / Pelajaran</label><input id="pptSubjek" placeholder="Akuntansi Manajemen"></div><div class="field"><label>Gaya</label><select id="pptGaya"><option>Akademik Profesional</option><option>Modern Minimalis</option><option>Fun untuk Gen Z</option></select></div></div>
+<div class="field"><label>Materi</label><textarea id="pptMateri" placeholder="Masukkan pokok bahasan..."></textarea></div>
+<div class="actions"><button class="primary" id="makePPT">Generate PPT</button><button class="secondary" id="downloadPPT" style="display:none">⬇ Download Outline Word</button></div><div id="pptOut" class="output"></div></div></section>
+
+<section id="bank" class="page"><div class="title"><h2>Bank Soal</h2></div><div class="card"><table class="table"><thead><tr><th>No</th><th>Materi</th><th>Jenis</th><th>Level</th><th>Status</th></tr></thead><tbody>
+<tr><td>1</td><td>Akuntansi Manajerial</td><td>Pilihan Ganda</td><td>HOTS</td><td>Aktif</td></tr><tr><td>2</td><td>Analisis Biaya</td><td>Pilihan Ganda</td><td>Aplikasi</td><td>Aktif</td></tr><tr><td>3</td><td>Perencanaan Laba</td><td>Essay</td><td>Analisis</td><td>Aktif</td></tr>
+</tbody></table></div></section>
+
+<section id="settings" class="page"><div class="title"><h2>Pengaturan</h2></div><div class="card form">
+<div class="field"><label>Nama Guru / Dosen</label><input id="setName" value="Euis Nessia Fitri"></div>
+<div class="field"><label>Nama Aplikasi</label><input id="setApp" value="EduAI Guru"></div>
+<button class="primary" id="save">Simpan Pengaturan</button></div></section>
+
+</div></main></div>
+<script>
+const $=id=>document.getElementById(id);
+const titles={dashboard:"Dashboard",chat:"AI Assistant",soal:"Generator Soal",lkpd:"Generator LKPD",modul:"Generator Modul Ajar",rps:"RPS / RPP",ppt:"Generator PPT",bank:"Bank Soal",settings:"Pengaturan"};
+function show(id){document.querySelectorAll(".page").forEach(x=>x.classList.toggle("active",x.id===id));document.querySelectorAll(".nav button").forEach(x=>x.classList.toggle("active",x.dataset.page===id));$("pageTitle").textContent=titles[id];}
+document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>show(b.dataset.page));document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>show(b.dataset.go));
+function output(id,text){$(id).textContent=text;$(id).style.display="block"}
+function word(text,name){
+const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const doc=`<!doctype html><html><head><meta charset="utf-8"><title>${esc(name)}</title></head><body><h1>${esc(name)}</h1><p>${esc(text).replace(/\n/g,"<br>")}</p></body></html>`;
+const blob=new Blob([doc],{type:"application/msword"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=name.replace(/[^\w-]+/g,"_")+".doc";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+}
+function bind(btn,out,name){$(btn).onclick=()=>word($(out).textContent,name())}
+$("makeSoal").onclick=()=>{
+let n=Math.max(1,Math.min(50,Number($("jumlah").value)||5)),s=$("subjek").value||"Mata Pelajaran",m=$("materi").value||"materi pembelajaran",l=$("level").value,j=$("jenis").value;
+let t=`SOAL PEMBELAJARAN\nMata Pelajaran: ${s}\nJenis: ${j}\nLevel: ${l}\nMateri: ${m}\nJumlah: ${n}\n\n`;
+for(let i=1;i<=n;i++)t+=`${i}. Analisislah penerapan konsep ${m} dalam kasus nyata berikut. Pilih jawaban yang paling tepat.\nA. Pilihan A\nB. Pilihan B\nC. Pilihan C\nD. Pilihan D\nKunci: C\n\n`;
+output("soalOut",t);$("downloadSoal").style.display="inline-block"};
+bind("downloadSoal","soalOut",()=>($("subjek").value||"Soal_Pembelajaran"));
+$("makeLKPD").onclick=()=>{let t=$("lkpdTopik").value||"Topik Pembelajaran",k=$("lkpdKelas").value||"Kelas",u=$("lkpdTujuan").value||"Peserta didik mampu memahami dan menerapkan materi.";output("lkpdOut",`LKPD\nTopik: ${t}\nKelas: ${k}\n\nA. Tujuan Pembelajaran\n${u}\n\nB. Petunjuk\n1. Pelajari materi.\n2. Diskusikan masalah.\n3. Kerjakan aktivitas.\n4. Presentasikan hasil.\n\nC. Aktivitas\nAnalisis kasus ${t}, identifikasi masalah, susun solusi, dan buat kesimpulan.\n\nD. Refleksi\nApa yang dipelajari dan apa kendalanya?`);$("downloadLKPD").style.display="inline-block"};bind("downloadLKPD","lkpdOut",()=> "LKPD_"+($("lkpdTopik").value||"Pembelajaran"));
+$("makeModul").onclick=()=>{let t=$("modulTopik").value||"Materi Pembelajaran",k=$("modulKelas").value||"Kelas",w=$("modulWaktu").value||"4 JP";output("modulOut",`MODUL AJAR\nJudul: ${t}\nFase/Kelas: ${k}\nAlokasi: ${w}\n\n1. Identitas Modul\n2. Kompetensi Awal\n3. Profil Pelajar\n4. Sarana dan Prasarana\n5. Tujuan Pembelajaran\n6. Pemahaman Bermakna\n7. Pertanyaan Pemantik\n8. Kegiatan Pembelajaran\n9. Asesmen\n10. Pengayaan dan Remedial\n11. Refleksi\n12. Lampiran`);$("downloadModul").style.display="inline-block"};bind("downloadModul","modulOut",()=> "Modul_"+($("modulTopik").value||"Pembelajaran"));
+$("makeRPS").onclick=()=>{let m=$("rpsMatkul").value||"Mata Kuliah",n=Math.max(1,Math.min(32,Number($("rpsPertemuan").value)||16)),c=$("rpsCpl").value||"Mahasiswa mampu mencapai kompetensi.";let t=`RPS / RPP\nMata Kuliah: ${m}\nJumlah Pertemuan: ${n}\n\nCPL / CPMK:\n${c}\n\nRENCANA PEMBELAJARAN\n`;for(let i=1;i<=n;i++)t+=`${i}. Pertemuan ${i} — Materi | Metode | Aktivitas | Asesmen | Indikator\n`;output("rpsOut",t);$("downloadRPS").style.display="inline-block"};bind("downloadRPS","rpsOut",()=> "RPS_"+($("rpsMatkul").value||"Mata_Kuliah"));
+$("makePPT").onclick=()=>{let j=$("pptJudul").value||"Presentasi Pembelajaran",n=Math.max(3,Math.min(30,Number($("pptJumlah").value)||10)),s=$("pptSubjek").value||"Mata Pelajaran",g=$("pptGaya").value,m=$("pptMateri").value||"materi pembelajaran";let t=`OUTLINE PPT\nJudul: ${j}\nMata Kuliah/Pelajaran: ${s}\nGaya: ${g}\nJumlah Slide: ${n}\nMateri: ${m}\n\nSlide 1 — Judul dan Identitas\nSlide 2 — Tujuan Pembelajaran\nSlide 3 — Apersepsi / Pertanyaan Pemantik\n`;for(let i=4;i<n;i++)t+=`Slide ${i} — Pembahasan ${i-3}: ${m}\n`;t+=`Slide ${n} — Kesimpulan, Refleksi, dan Evaluasi`;output("pptOut",t);$("downloadPPT").style.display="inline-block"};bind("downloadPPT","pptOut",()=> "Outline_PPT_"+($("pptJudul").value||"Pembelajaran"));
+function add(text,me){let d=document.createElement("div");d.className="msg"+(me?" me":"");d.innerHTML=(me?"":"<div class='avatar'>AI</div>")+"<div class='bubble'></div>";d.querySelector(".bubble").textContent=text;$("messages").appendChild(d);$("messages").scrollTop=$("messages").scrollHeight}
+$("send").onclick=()=>{let t=$("chatText").value.trim();if(!t)return;add(t,true);$("chatText").value="";setTimeout(()=>add("Mode simulasi aktif. Saat API ChatGPT/Gemini dihubungkan, respons ini dapat diganti dengan jawaban AI nyata."),350)};
+$("chatText").onkeydown=e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();$("send").click()}};
+$("save").onclick=()=>{let n=$("setName").value.trim()||"Guru/Dosen";$("profileName").textContent=n;$("welcome").textContent="Selamat datang di EduAI Guru, "+n;alert("Pengaturan disimpan untuk sesi ini.")};
+</script>
+</body>
+</html>
