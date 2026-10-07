@@ -1,0 +1,2 @@
+# portalguru
+bel;ajar
